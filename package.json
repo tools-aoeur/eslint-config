@@ -1,0 +1,23 @@
+{
+  "name": "@tools-aoeur/eslint-config",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "@tools-aoeur",
+  "homepage": "https://github.com/tools-aoeur/eslint-config",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tools-aoeur/eslint-config.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig"
+  ],
+  "peerDependencies": {
+    "eslint": ">= 9"
+  }
+}
