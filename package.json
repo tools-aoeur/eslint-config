@@ -1,6 +1,6 @@
 {
   "name": "@tools-aoeur/eslint-config",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Shared ESLint config for @tools-aoeur projects.",
   "main": "index.js",
   "license": "MIT",
