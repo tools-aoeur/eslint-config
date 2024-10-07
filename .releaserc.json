@@ -1,0 +1,22 @@
+{
+  "preset": "conventionalcommits",
+  "plugins": [
+    ["@semantic-release/commit-analyzer", {
+      "releaseRules": [
+        {"breaking": true, "release": "major"},
+        {"release": "minor", "type": "feat"},
+        {"release": "patch", "type": "fix"}
+      ]
+    }],
+    "@semantic-release/release-notes-generator",
+    ["@semantic-release/changelog", {"changelogTitle": "# Changelog"}],
+    "@semantic-release/npm",
+    ["@semantic-release/github", {
+      "successComment": false,
+      "failComment": false,
+      "failTitle": false,
+      "releasedLabels": false
+    }],
+    ["@semantic-release/git", {"message": "Release ${nextRelease.version}"}]
+  ]
+}
