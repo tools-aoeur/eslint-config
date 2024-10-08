@@ -4,7 +4,7 @@
 import importPlugin from 'eslint-plugin-import';
 // eslint-disable-next-line import/no-unresolved -- False positive
 import typescriptEslint from 'typescript-eslint';
-import {ERROR, OFF, typescriptFiles} from './config.js';
+import { ERROR, OFF, typescriptFiles } from './config.js';
 import javascript from './javascript.js';
 
 /**
@@ -45,11 +45,18 @@ export default [
       'no-use-before-define': OFF,
       'no-unused-expressions': OFF,
 
-      '@typescript-eslint/no-unused-vars': ERROR,
+      '@typescript-eslint/no-unused-vars': [
+        ERROR,
+        {
+          args: 'after-used',
+          argsIgnorePattern: '^_',
+          vars: 'all'
+        }
+      ],
       '@typescript-eslint/prefer-optional-chain': ERROR,
       '@typescript-eslint/no-unnecessary-condition': ERROR,
       '@typescript-eslint/no-unused-expressions': ERROR,
-      '@typescript-eslint/array-type': [ERROR, {default: 'generic'}],
+      '@typescript-eslint/array-type': [ERROR, { default: 'generic' }],
       '@typescript-eslint/await-thenable': ERROR,
       '@typescript-eslint/ban-ts-comment': [
         ERROR,
@@ -60,24 +67,46 @@ export default [
       ],
       // Avoid declaring the implied return type for React components
       '@typescript-eslint/explicit-module-boundary-types': OFF,
-      '@typescript-eslint/method-signature-style': [ERROR, 'method'],
-      '@typescript-eslint/no-explicit-any': OFF,
+      '@typescript-eslint/method-signature-style': [ERROR, 'property'],
+      '@typescript-eslint/no-explicit-any': ERROR,
       '@typescript-eslint/no-for-in-array': ERROR,
       '@typescript-eslint/no-inferrable-types': ERROR,
       '@typescript-eslint/no-misused-promises': [
         ERROR,
-        {checksVoidReturn: {attributes: false}}
+        { checksVoidReturn: { attributes: false } }
       ],
       // There are valid use cases for this
       '@typescript-eslint/no-empty-interface': OFF,
       '@typescript-eslint/no-empty-function': OFF,
       '@typescript-eslint/no-non-null-assertion': OFF,
-      '@typescript-eslint/no-shadow': [ERROR],
+      '@typescript-eslint/no-shadow': ERROR,
       '@typescript-eslint/no-var-requires': OFF,
-      '@typescript-eslint/switch-exhaustiveness-check': ERROR,
+      '@typescript-eslint/switch-exhaustiveness-check': [
+        ERROR,
+        {
+          allowDefaultCaseForExhaustiveSwitch: false,
+          requireDefaultForNonUnion: true
+        }
+      ],
       '@typescript-eslint/explicit-member-accessibility': OFF,
       // Too restrictive
-      '@typescript-eslint/no-empty-object-type': OFF
+      '@typescript-eslint/no-empty-object-type': OFF,
+      '@typescript-eslint/consistent-type-exports': [
+        ERROR,
+        { fixMixedExportsWithInlineTypeSpecifier: true }
+      ],
+      // Prevent type parameter names like `TValue`, `T`, `T1`
+      '@typescript-eslint/naming-convention': [
+        ERROR,
+        {
+          selector: 'typeParameter',
+          format: ['PascalCase'],
+          custom: {
+            regex: '^[A-Z][a-z]',
+            match: true
+          }
+        }
+      ]
     }
   }
 ];

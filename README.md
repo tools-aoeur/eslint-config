@@ -12,7 +12,7 @@
 2. Setup your project config in `eslint.config.mjs`:
 
 ```js
-import {getPresets} from '@tools-aoeur/eslint-config';
+import { getPresets } from '@tools-aoeur/eslint-config';
 
 export default [
   ...(await getPresets(
@@ -20,6 +20,7 @@ export default [
     'typescript', // or 'javascript'
 
     // Optional extensions
+    'lodash',
     'react',
     'cssModules',
     'jest',

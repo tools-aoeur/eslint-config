@@ -6,7 +6,7 @@
  * This enables to avoid loading plugins that may have
  * peer dependencies that are not installed.
  *
- * @param {...('javascript'|'typescript'|'react'|'cssModules'|'jest'|'cypress'|'vitest')} names - The names of configurations to load
+ * @param {...('javascript'|'typescript'|'react'|'cssModules'|'jest'|'cypress'|'vitest'|'lodash')} names - The names of configurations to load
  * @returns {Promise<import('eslint').Linter.Config[]>}
  */
 export async function getPresets(...names) {

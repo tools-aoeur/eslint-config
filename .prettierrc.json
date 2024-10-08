@@ -1,5 +1,12 @@
 {
   "singleQuote": true,
-  "bracketSpacing": false,
-  "trailingComma": "none"
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.scss",
+      "options": {
+        "parser": "scss"
+      }
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 // @ts-check
 
-import {getPresets} from './src/index.js';
+import { getPresets } from './src/index.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -12,6 +12,7 @@ export default [
     'cssModules',
     'jest',
     'cypress',
-    'vitest'
+    'vitest',
+    'lodash'
   ))
 ];

@@ -1,12 +1,13 @@
 // @ts-check
 
 import js from '@eslint/js';
+import commentsPlugin from '@eslint-community/eslint-plugin-eslint-comments';
 import confusingBrowserGlobals from 'confusing-browser-globals';
 // @ts-expect-error -- False positive
 import importPlugin from 'eslint-plugin-import';
 import unicornPlugin from 'eslint-plugin-unicorn';
 import unusedImportsPlugin from 'eslint-plugin-unused-imports';
-import {ERROR} from './config.js';
+import { ERROR } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -22,7 +23,8 @@ export default [
     plugins: {
       unicorn: unicornPlugin,
       import: importPlugin,
-      'unused-imports': unusedImportsPlugin
+      'unused-imports': unusedImportsPlugin,
+      'eslint-comments': /** @type {any} -- This is fine */ (commentsPlugin)
     },
     settings: {
       'import/resolver': 'node'
@@ -32,9 +34,9 @@ export default [
       'arrow-body-style': [ERROR, 'as-needed'],
       curly: [ERROR, 'multi-line'],
       'dot-notation': ERROR,
-      eqeqeq: [ERROR, 'always', {null: 'ignore'}],
+      eqeqeq: [ERROR, 'always', { null: 'ignore' }],
       'func-names': [ERROR, 'as-needed'],
-      'func-style': [ERROR, 'declaration', {allowArrowFunctions: false}],
+      'func-style': [ERROR, 'declaration', { allowArrowFunctions: false }],
       'unused-imports/no-unused-imports': ERROR,
       'import/named': ERROR,
       'import/namespace': ERROR,
@@ -42,7 +44,7 @@ export default [
       'import/export': ERROR,
       'import/no-duplicates': ERROR,
       'import/newline-after-import': ERROR,
-      'import/no-unresolved': [ERROR, {commonjs: true}],
+      'import/no-unresolved': [ERROR, { commonjs: true }],
       'import/no-extraneous-dependencies': ERROR,
       'import/order': [
         ERROR,
@@ -56,11 +58,12 @@ export default [
             'index'
           ],
           'newlines-between': 'never',
-          alphabetize: {order: 'asc'}
+          alphabetize: { order: 'asc' }
         }
       ],
       'import/no-useless-path-segments': ERROR,
-      'no-console': [ERROR, {allow: ['warn', 'error']}],
+      'no-invalid-this': ERROR,
+      'no-console': [ERROR, { allow: ['warn', 'error'] }],
       'no-restricted-globals': /** @type {any} -- This is correct */ (
         [ERROR].concat(confusingBrowserGlobals)
       ),
@@ -74,9 +77,15 @@ export default [
       ],
       'no-shadow': ERROR,
       'no-throw-literal': ERROR,
+      'no-underscore-dangle': [
+        ERROR,
+        {
+          allow: ['__typename', '_type']
+        }
+      ],
       'no-unneeded-ternary': ERROR,
       'no-unused-expressions': ERROR,
-      'no-use-before-define': [ERROR, {functions: false}],
+      'no-use-before-define': [ERROR, { functions: false }],
       'no-useless-rename': ERROR,
       'no-var': ERROR,
       'object-shorthand': ERROR,
@@ -98,7 +107,24 @@ export default [
       'unicorn/no-abusive-eslint-disable': ERROR,
       'unicorn/prefer-array-index-of': ERROR,
       'unicorn/prefer-optional-catch-binding': ERROR,
-      'unicorn/no-useless-spread': ERROR
+      'unicorn/no-useless-spread': ERROR,
+      'eslint-comments/no-aggregating-enable': 'error',
+      'eslint-comments/no-duplicate-disable': 'error',
+      'eslint-comments/no-unlimited-disable': 'error',
+      'eslint-comments/no-unused-disable': 'error',
+      'eslint-comments/no-unused-enable': 'error',
+      'eslint-comments/require-description': [
+        'error',
+        { ignore: ['eslint-enable'] }
+      ],
+      'lodash/import-scope': ['error', 'member'],
+      'sort-imports': [
+        'error',
+        {
+          // The `import/order` rule takes care of sorting import declarations
+          ignoreDeclarationSort: true
+        }
+      ]
     }
   }
 ];
