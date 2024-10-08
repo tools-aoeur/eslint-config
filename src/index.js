@@ -11,7 +11,7 @@
  */
 export async function getPresets(...names) {
   const config = await Promise.all(
-    names.map((name) => import(`./${name}.js`).then((mod) => mod.default))
+    names.map(name => import(`./${name}.js`).then(mod => mod.default))
   );
   return config.flat();
 }

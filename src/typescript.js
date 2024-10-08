@@ -53,8 +53,6 @@ export default [
           vars: 'all'
         }
       ],
-      '@typescript-eslint/prefer-optional-chain': ERROR,
-      '@typescript-eslint/no-unnecessary-condition': ERROR,
       '@typescript-eslint/no-unused-expressions': ERROR,
       '@typescript-eslint/array-type': [ERROR, { default: 'generic' }],
       '@typescript-eslint/await-thenable': ERROR,

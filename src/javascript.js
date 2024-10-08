@@ -117,7 +117,6 @@ export default [
         'error',
         { ignore: ['eslint-enable'] }
       ],
-      'lodash/import-scope': ['error', 'member'],
       'sort-imports': [
         'error',
         {
