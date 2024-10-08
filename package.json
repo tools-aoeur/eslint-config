@@ -1,13 +1,14 @@
 {
   "name": "@tools-aoeur/eslint-config",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Shared ESLint config for @tools-aoeur projects.",
-  "main": "index.js",
+  "main": "src/index.js",
   "license": "MIT",
   "author": "@tools-aoeur",
   "homepage": "https://github.com/tools-aoeur/eslint-config",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src",
+    "prepublish": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -17,8 +18,32 @@
     "eslint",
     "eslintconfig"
   ],
+  "type": "module",
+  "files": [
+    "src",
+    ".prettierrc.json",
+    "tsconfig.json"
+  ],
+  "dependencies": {
+    "@eslint/compat": "1.2.0",
+    "@eslint/js": "^9.11.1",
+    "@typescript-eslint/utils": "^8.0.0",
+    "@vitest/eslint-plugin": "1.1.5",
+    "confusing-browser-globals": "^1.0.11",
+    "eslint-import-resolver-typescript": "3.6.3",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.2.3",
+    "eslint-plugin-jsx-a11y": "^6.10.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-sort-destructure-keys": "^2.0.0",
+    "eslint-plugin-unicorn": "^56.0.0",
+    "eslint-plugin-unused-imports": "4.1.4",
+    "typescript-eslint": "^8.8.0"
+  },
   "peerDependencies": {
-    "eslint": ">= 9"
+    "eslint": "^9.0.0"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.3",
@@ -26,6 +51,9 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^14.0.1",
-    "conventional-changelog-conventionalcommits": "^8.0.0"
+    "conventional-changelog-conventionalcommits": "^8.0.0",
+    "eslint": "^9.0.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.1.6"
   }
 }
