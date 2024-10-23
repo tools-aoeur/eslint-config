@@ -13,8 +13,8 @@ import javascript from './javascript.js';
 export default [
   ...javascript,
 
-  typescriptEslint.configs.eslintRecommended,
   ...typescriptEslint.configs.recommended,
+  ...typescriptEslint.configs.stylisticTypeChecked,
   importPlugin.configs.typescript,
 
   {
@@ -56,19 +56,8 @@ export default [
       '@typescript-eslint/no-unused-expressions': ERROR,
       '@typescript-eslint/array-type': [ERROR, { default: 'generic' }],
       '@typescript-eslint/await-thenable': ERROR,
-      '@typescript-eslint/ban-ts-comment': [
-        ERROR,
-        {
-          'ts-expect-error': false, // This is sometimes necessary and a better alternative to ts-ignore
-          'ts-ignore': 'allow-with-description'
-        }
-      ],
-      // Avoid declaring the implied return type for React components
-      '@typescript-eslint/explicit-module-boundary-types': OFF,
       '@typescript-eslint/method-signature-style': [ERROR, 'property'],
-      '@typescript-eslint/no-explicit-any': ERROR,
       '@typescript-eslint/no-for-in-array': ERROR,
-      '@typescript-eslint/no-inferrable-types': ERROR,
       '@typescript-eslint/no-misused-promises': [
         ERROR,
         { checksVoidReturn: { attributes: false } }
@@ -76,9 +65,13 @@ export default [
       // There are valid use cases for this
       '@typescript-eslint/no-empty-interface': OFF,
       '@typescript-eslint/no-empty-function': OFF,
-      '@typescript-eslint/no-non-null-assertion': OFF,
       '@typescript-eslint/no-shadow': ERROR,
-      '@typescript-eslint/no-var-requires': OFF,
+      '@typescript-eslint/prefer-nullish-coalescing': [
+        'error',
+        {
+          ignorePrimitives: { boolean: true, string: true }
+        }
+      ],
       '@typescript-eslint/switch-exhaustiveness-check': [
         ERROR,
         {
@@ -89,6 +82,7 @@ export default [
       '@typescript-eslint/explicit-member-accessibility': OFF,
       // Too restrictive
       '@typescript-eslint/no-empty-object-type': OFF,
+      '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
       '@typescript-eslint/consistent-type-exports': [
         ERROR,
         { fixMixedExportsWithInlineTypeSpecifier: true }

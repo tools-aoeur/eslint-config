@@ -1,7 +1,7 @@
 // @ts-check
 
 import vitestPlugin from '@vitest/eslint-plugin';
-import {ERROR, testFiles} from './config.js';
+import { ERROR, testFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -13,6 +13,7 @@ export default [
     },
     files: testFiles,
     rules: {
+      ...vitestPlugin.configs.recommended.rules,
       'vitest/consistent-test-it': [
         ERROR,
         {
@@ -20,11 +21,7 @@ export default [
           withinDescribe: 'it'
         }
       ],
-      'vitest/prefer-lowercase-title': [ERROR, {ignore: ['describe']}],
-      'vitest/no-commented-out-tests': ERROR,
-      'vitest/no-disabled-tests': ERROR,
-      'vitest/no-focused-tests': ERROR,
-      'vitest/no-identical-title': ERROR
+      'vitest/prefer-lowercase-title': [ERROR, { ignore: ['describe'] }]
     }
   }
 ];

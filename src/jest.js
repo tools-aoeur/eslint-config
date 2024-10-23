@@ -1,7 +1,7 @@
 // @ts-check
 
 import jestPlugin from 'eslint-plugin-jest';
-import {ERROR, testFiles} from './config.js';
+import { ERROR, testFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -12,7 +12,9 @@ export default [
       jest: jestPlugin
     },
     files: testFiles,
+    ...jestPlugin.configs['flat/recommended'],
     rules: {
+      ...jestPlugin.configs['flat/recommended'],
       'jest/consistent-test-it': [
         ERROR,
         {
@@ -20,11 +22,7 @@ export default [
           withinDescribe: 'it'
         }
       ],
-      'jest/prefer-lowercase-title': [ERROR, {ignore: ['describe']}],
-      'jest/no-commented-out-tests': ERROR,
-      'jest/no-disabled-tests': ERROR,
-      'jest/no-focused-tests': ERROR,
-      'jest/no-identical-title': ERROR
+      'jest/prefer-lowercase-title': [ERROR, { ignore: ['describe'] }]
     }
   }
 ];
