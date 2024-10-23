@@ -1,6 +1,6 @@
 // @ts-check
 
-import {ERROR, testFiles} from './config.js';
+import { ERROR, testFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -11,7 +11,7 @@ export default [
     rules: {
       'no-restricted-properties': [
         ERROR,
-        ...['it', 'describe', 'test'].map((name) => ({
+        ...['it', 'describe', 'test'].map(name => ({
           object: name,
           property: 'only',
           message:

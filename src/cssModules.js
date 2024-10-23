@@ -2,7 +2,7 @@
 
 // @ts-expect-error -- False positive
 import cssModules from 'eslint-plugin-css-modules';
-import {ERROR, OFF, testFiles} from './config.js';
+import { ERROR, OFF, testFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
