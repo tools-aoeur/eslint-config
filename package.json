@@ -7,7 +7,7 @@
   "author": "@tools-aoeur",
   "homepage": "https://github.com/tools-aoeur/eslint-config",
   "scripts": {
-    "lint": "eslint src && prettier --check .",
+    "lint": "eslint src && prettier --check src",
     "prepublish": "npm run lint"
   },
   "repository": {
