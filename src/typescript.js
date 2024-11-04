@@ -27,8 +27,7 @@ export default [
     },
     languageOptions: {
       parserOptions: {
-        projectService: true,
-        tsconfigRootDir: process.cwd()
+        projectService: true
       }
     },
     rules: {
