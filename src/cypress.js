@@ -1,13 +1,13 @@
 // @ts-check
 
-import { ERROR, testFiles } from './config.js';
+import { ERROR, cypressTestFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
  */
 export default [
   {
-    files: testFiles,
+    files: cypressTestFiles,
     rules: {
       'no-restricted-properties': [
         ERROR,
