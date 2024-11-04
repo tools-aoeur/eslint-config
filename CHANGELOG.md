@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0](https://github.com/tools-aoeur/eslint-config/compare/v1.0.0...v1.1.0) (2024-11-04)
+
+### Features
+
+* Setup rules  ([#3](https://github.com/tools-aoeur/eslint-config/issues/3)) ([533889a](https://github.com/tools-aoeur/eslint-config/commit/533889a8a3cad66deb89327890690d3b7199a082))
+
 ## 1.0.0 (2024-10-07)
 
 ### Features
