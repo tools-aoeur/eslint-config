@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1](https://github.com/tools-aoeur/eslint-config/compare/v1.1.0...v1.1.1) (2024-11-05)
+
+### Bug Fixes
+
+* Limit vitest rules to unit test files ([#7](https://github.com/tools-aoeur/eslint-config/issues/7)) ([a38b4e4](https://github.com/tools-aoeur/eslint-config/commit/a38b4e4681b594b728e98bb0bb46444da758afb4))
+
 ## [1.1.0](https://github.com/tools-aoeur/eslint-config/compare/v1.0.0...v1.1.0) (2024-11-04)
 
 ### Features
