@@ -1,7 +1,16 @@
 export const ERROR = 'error';
-
 export const OFF = 'off';
 
-export const testFiles = ['**/*.{spec,test,e2e,cy}.{js,jsx,ts,tsx}'];
+const jsFileExtensions = ['js', 'jsx', 'mjs', /*   */ 'cjs' /*   */];
+const tsFileExtensions = ['ts', 'tsx', 'mts', 'mtsx', 'cts', 'ctsx'];
+const allFileExtensions = [...jsFileExtensions, ...tsFileExtensions];
 
-export const typescriptFiles = ['**/*.{ts,tsx,mts,mtsx,cts,ctsx}'];
+export const unitTestFiles = [
+  `**/*.{spec,test}.{${allFileExtensions.join(',')}}`
+];
+export const cypressTestFiles = [
+  `**/*.{cy,e2e}.{${allFileExtensions.join(',')}}`
+];
+export const allTestFiles = [...unitTestFiles, ...cypressTestFiles];
+
+export const typescriptFiles = [`**/*.{${tsFileExtensions.join(',')}}`];
