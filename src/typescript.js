@@ -82,10 +82,6 @@ export default [
       // Too restrictive
       '@typescript-eslint/no-empty-object-type': OFF,
       '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
-      '@typescript-eslint/consistent-type-exports': [
-        ERROR,
-        { fixMixedExportsWithInlineTypeSpecifier: true }
-      ],
       // Prevent type parameter names like `TValue`, `T`, `T1`
       '@typescript-eslint/naming-convention': [
         ERROR,
