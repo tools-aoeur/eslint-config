@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0](https://github.com/tools-aoeur/eslint-config/compare/v1.1.1...v1.2.0) (2024-11-06)
+
+### Features
+
+* Stricter settings for imports and exports ([#10](https://github.com/tools-aoeur/eslint-config/issues/10)) ([84c5ae9](https://github.com/tools-aoeur/eslint-config/commit/84c5ae9b160172a46830582a62133c83419b7a68))
+
 ## [1.1.1](https://github.com/tools-aoeur/eslint-config/compare/v1.1.0...v1.1.1) (2024-11-05)
 
 ### Bug Fixes
