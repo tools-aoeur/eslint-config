@@ -4,7 +4,7 @@
 import importPlugin from 'eslint-plugin-import';
 // eslint-disable-next-line import/no-unresolved -- False positive
 import typescriptEslint from 'typescript-eslint';
-import { ERROR, OFF, typescriptFiles } from './config.js';
+import { ERROR, OFF, javascriptFiles } from './config.js';
 import javascript from './javascript.js';
 
 /**
@@ -21,13 +21,7 @@ export default [
       parserOptions: {
         projectService: true
       }
-    }
-  },
-  {
-    // Only apply TypeScript rules to TypeScript files to avoid
-    // causing issues in regular JavaScript files. See also:
-    // https://stackoverflow.com/a/64488474/343045
-    files: typescriptFiles,
+    },
     settings: {
       'import/resolver': 'typescript'
     },
@@ -100,5 +94,9 @@ export default [
         }
       ]
     }
+  },
+  {
+    files: javascriptFiles,
+    ...typescriptEslint.configs.disableTypeChecked
   }
 ];

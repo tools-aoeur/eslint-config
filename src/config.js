@@ -14,3 +14,4 @@ export const cypressTestFiles = [
 export const allTestFiles = [...unitTestFiles, ...cypressTestFiles];
 
 export const typescriptFiles = [`**/*.{${tsFileExtensions.join(',')}}`];
+export const javascriptFiles = [`**/*.{${jsFileExtensions.join(',')}}`];
