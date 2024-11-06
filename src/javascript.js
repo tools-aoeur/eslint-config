@@ -42,7 +42,7 @@ export default [
       'import/namespace': ERROR,
       'import/default': ERROR,
       'import/export': ERROR,
-      'import/no-duplicates': ERROR,
+      'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
       'import/newline-after-import': ERROR,
       'import/no-unresolved': [ERROR, { commonjs: true }],
       'import/no-extraneous-dependencies': ERROR,

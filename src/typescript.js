@@ -57,6 +57,7 @@ export default [
       '@typescript-eslint/await-thenable': ERROR,
       '@typescript-eslint/method-signature-style': [ERROR, 'property'],
       '@typescript-eslint/no-for-in-array': ERROR,
+      '@typescript-eslint/no-import-type-side-effects': ERROR,
       '@typescript-eslint/no-misused-promises': [
         ERROR,
         { checksVoidReturn: { attributes: false } }
@@ -82,10 +83,6 @@ export default [
       // Too restrictive
       '@typescript-eslint/no-empty-object-type': OFF,
       '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
-      '@typescript-eslint/consistent-type-exports': [
-        ERROR,
-        { fixMixedExportsWithInlineTypeSpecifier: true }
-      ],
       // Prevent type parameter names like `TValue`, `T`, `T1`
       '@typescript-eslint/naming-convention': [
         ERROR,
