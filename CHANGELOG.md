@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.1](https://github.com/tools-aoeur/eslint-config/compare/v1.2.0...v1.2.1) (2024-11-06)
+
+### Bug Fixes
+
+* Don't apply rules that require type information to JS files([#11](https://github.com/tools-aoeur/eslint-config/issues/11)) ([4edf59e](https://github.com/tools-aoeur/eslint-config/commit/4edf59e90b46e1050dcd2a68fb544d433da9cda5))
+
 ## [1.2.0](https://github.com/tools-aoeur/eslint-config/compare/v1.1.1...v1.2.0) (2024-11-06)
 
 ### Features
