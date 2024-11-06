@@ -16,7 +16,13 @@ export default [
   ...typescriptEslint.configs.recommended,
   ...typescriptEslint.configs.stylisticTypeChecked,
   importPlugin.configs.typescript,
-
+  {
+    languageOptions: {
+      parserOptions: {
+        projectService: true
+      }
+    }
+  },
   {
     // Only apply TypeScript rules to TypeScript files to avoid
     // causing issues in regular JavaScript files. See also:
@@ -24,11 +30,6 @@ export default [
     files: typescriptFiles,
     settings: {
       'import/resolver': 'typescript'
-    },
-    languageOptions: {
-      parserOptions: {
-        projectService: true
-      }
     },
     rules: {
       // The TypeScript compiler takes care of this
