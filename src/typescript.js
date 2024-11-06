@@ -75,7 +75,6 @@ export default [
       '@typescript-eslint/switch-exhaustiveness-check': [
         ERROR,
         {
-          allowDefaultCaseForExhaustiveSwitch: false,
           requireDefaultForNonUnion: true
         }
       ],
