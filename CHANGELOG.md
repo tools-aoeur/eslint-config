@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.3.0](https://github.com/tools-aoeur/eslint-config/compare/v1.2.1...v1.3.0) (2024-11-22)
+
+### Features
+
+* Update dependencies ([#12](https://github.com/tools-aoeur/eslint-config/issues/12)) ([ac4fcaf](https://github.com/tools-aoeur/eslint-config/commit/ac4fcaf7d4674d427ec9e1f871785e23014f3b88))
+
 ## [1.2.1](https://github.com/tools-aoeur/eslint-config/compare/v1.2.0...v1.2.1) (2024-11-06)
 
 ### Bug Fixes
