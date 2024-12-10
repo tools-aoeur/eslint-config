@@ -77,19 +77,7 @@ export default [
       '@typescript-eslint/explicit-member-accessibility': OFF,
       // Too restrictive
       '@typescript-eslint/no-empty-object-type': OFF,
-      '@typescript-eslint/consistent-type-definitions': [ERROR, 'type'],
-      // Prevent type parameter names like `TValue`, `T`, `T1`
-      '@typescript-eslint/naming-convention': [
-        ERROR,
-        {
-          selector: 'typeParameter',
-          format: ['PascalCase'],
-          custom: {
-            regex: '^[A-Z][a-z]',
-            match: true
-          }
-        }
-      ]
+      '@typescript-eslint/consistent-type-definitions': [ERROR, 'type']
     }
   },
   {
