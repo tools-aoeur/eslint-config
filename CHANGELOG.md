@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.1](https://github.com/tools-aoeur/eslint-config/compare/v1.4.0...v1.4.1) (2024-12-11)
+
+### Bug Fixes
+
+* Package update including typescript deprecation checker fix ([#17](https://github.com/tools-aoeur/eslint-config/issues/17)) ([5995e37](https://github.com/tools-aoeur/eslint-config/commit/5995e3791603cc30d2cf40cd3c2d8c181153c076))
+
 ## [1.4.0](https://github.com/tools-aoeur/eslint-config/compare/v1.3.0...v1.4.0) (2024-12-11)
 
 ### Features
