@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.0](https://github.com/tools-aoeur/eslint-config/compare/v1.3.0...v1.4.0) (2024-12-11)
+
+### Features
+
+* Remove `@typescript-eslint/naming-convention` rule ([#15](https://github.com/tools-aoeur/eslint-config/issues/15)) ([c04c3ad](https://github.com/tools-aoeur/eslint-config/commit/c04c3adb95bdf5707cf9df3aa938e9f5ee85252b))
+
 ## [1.3.0](https://github.com/tools-aoeur/eslint-config/compare/v1.2.1...v1.3.0) (2024-11-22)
 
 ### Features
