@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.3](https://github.com/tools-aoeur/eslint-config/compare/v1.4.2...v1.4.3) (2025-02-14)
+
+### Bug Fixes
+
+* Update dependencies 2025-02-14 ([#19](https://github.com/tools-aoeur/eslint-config/issues/19)) ([28deadf](https://github.com/tools-aoeur/eslint-config/commit/28deadf34df651e50436ea8a8ebc7423ee4bf19f))
+
 ## [1.4.2](https://github.com/tools-aoeur/eslint-config/compare/v1.4.1...v1.4.2) (2025-01-21)
 
 ### Bug Fixes
