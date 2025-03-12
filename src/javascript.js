@@ -42,10 +42,10 @@ export default [
       'import/namespace': ERROR,
       'import/default': ERROR,
       'import/export': ERROR,
-      'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
       'import/newline-after-import': ERROR,
-      'import/no-unresolved': [ERROR, { commonjs: true }],
+      'import/no-duplicates': [ERROR, { 'prefer-inline': true }],
       'import/no-extraneous-dependencies': ERROR,
+      'import/no-unresolved': [ERROR, { commonjs: true }],
       'import/order': [
         ERROR,
         {
@@ -103,7 +103,6 @@ export default [
         }
       ],
       'unicorn/explicit-length-check': ERROR,
-      'unicorn/import-index': ERROR,
       'unicorn/no-abusive-eslint-disable': ERROR,
       'unicorn/prefer-array-index-of': ERROR,
       'unicorn/prefer-optional-catch-binding': ERROR,
