@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.6.0](https://github.com/tools-aoeur/eslint-config/compare/v1.5.0...v1.6.0) (2025-04-28)
+
+### Features
+
+* Update dependencies 2025-04-28 ([#22](https://github.com/tools-aoeur/eslint-config/issues/22)) ([a79d517](https://github.com/tools-aoeur/eslint-config/commit/a79d517517d3c7b4e53927e2ed629b24570ab7a1))
+
+### Bug Fixes
+
+* CI os and npm versions ([#23](https://github.com/tools-aoeur/eslint-config/issues/23)) ([5809400](https://github.com/tools-aoeur/eslint-config/commit/580940018272987c24c6a32da6e1139a876d3980))
+
 ## [1.5.0](https://github.com/tools-aoeur/eslint-config/compare/v1.4.4...v1.5.0) (2025-03-31)
 
 ### Features
