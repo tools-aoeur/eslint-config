@@ -25,23 +25,23 @@
     "tsconfig.json"
   ],
   "dependencies": {
-    "@eslint-community/eslint-plugin-eslint-comments": "^4.4.1",
-    "@eslint/js": "^9.23.0",
-    "@typescript-eslint/utils": "^8.28.0",
-    "@vitest/eslint-plugin": "^1.1.38",
+    "@eslint-community/eslint-plugin-eslint-comments": "^4.5.0",
+    "@eslint/js": "^9.25.1",
+    "@typescript-eslint/utils": "^8.31.0",
+    "@vitest/eslint-plugin": "^1.1.43",
     "confusing-browser-globals": "^1.0.11",
-    "eslint-import-resolver-typescript": "^4.3.1",
+    "eslint-import-resolver-typescript": "^4.3.4",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jest": "^28.11.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-lodash": "^8.0.0",
-    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-sort-destructure-keys": "^2.0.0",
-    "eslint-plugin-unicorn": "^58.0.0",
+    "eslint-plugin-unicorn": "^59.0.0",
     "eslint-plugin-unused-imports": "^4.1.4",
-    "typescript-eslint": "^8.28.0"
+    "typescript-eslint": "^8.31.0"
   },
   "peerDependencies": {
     "eslint": "^9.0.0"
@@ -53,8 +53,8 @@
     "@semantic-release/npm": "^12.0.1",
     "@semantic-release/release-notes-generator": "^14.0.3",
     "conventional-changelog-conventionalcommits": "^8.0.0",
-    "eslint": "^9.23.0",
+    "eslint": "^9.25.1",
     "prettier": "^3.5.3",
-    "typescript": "^5.8.2"
+    "typescript": "^5.8.3"
   }
 }
