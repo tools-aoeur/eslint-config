@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.8.0](https://github.com/tools-aoeur/eslint-config/compare/v1.7.0...v1.8.0) (2025-07-02)
+
+### Features
+
+* Update dependencies 2025-07-02 ([#26](https://github.com/tools-aoeur/eslint-config/issues/26)) ([d7617e7](https://github.com/tools-aoeur/eslint-config/commit/d7617e70d37044cdde04fa3feeff9fdb356b1893))
+
 ## [1.7.0](https://github.com/tools-aoeur/eslint-config/compare/v1.6.0...v1.7.0) (2025-06-03)
 
 ### Features
