@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.0.0](https://github.com/tools-aoeur/eslint-config/compare/v1.8.0...v2.0.0) (2025-07-03)
+
+### ⚠ BREAKING CHANGES
+
+* Add `@typescript-eslint/no-floating-promises` (#27)
+
+### Features
+
+* Add `@typescript-eslint/no-floating-promises` ([#27](https://github.com/tools-aoeur/eslint-config/issues/27)) ([6c5636e](https://github.com/tools-aoeur/eslint-config/commit/6c5636e9a59d603072d7b42c4a40edb57c4fbdc0))
+
 ## [1.8.0](https://github.com/tools-aoeur/eslint-config/compare/v1.7.0...v1.8.0) (2025-07-02)
 
 ### Features
