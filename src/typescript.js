@@ -52,6 +52,7 @@ export default [
       '@typescript-eslint/await-thenable': ERROR,
       '@typescript-eslint/method-signature-style': [ERROR, 'property'],
       '@typescript-eslint/no-for-in-array': ERROR,
+      '@typescript-eslint/no-floating-promises': ERROR,
       '@typescript-eslint/no-import-type-side-effects': ERROR,
       '@typescript-eslint/no-misused-promises': [
         ERROR,
