@@ -1,5 +1,15 @@
 # Changelog
 
+## [3.0.0](https://github.com/tools-aoeur/eslint-config/compare/v2.1.0...v3.0.0) (2025-09-25)
+
+### ⚠ BREAKING CHANGES
+
+* Update deps and enable new rules 2025-09-24 (#30)
+
+### Features
+
+* Update deps and enable new rules 2025-09-24 ([#30](https://github.com/tools-aoeur/eslint-config/issues/30)) ([16ffc19](https://github.com/tools-aoeur/eslint-config/commit/16ffc19f829ec15f999f45266add41726be803f1))
+
 ## [2.1.0](https://github.com/tools-aoeur/eslint-config/compare/v2.0.0...v2.1.0) (2025-08-27)
 
 ### Features
