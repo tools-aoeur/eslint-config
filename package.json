@@ -7,7 +7,10 @@
   "author": "@tools-aoeur",
   "homepage": "https://github.com/tools-aoeur/eslint-config",
   "scripts": {
-    "lint": "eslint src && prettier --check src",
+    "lint": "npm run lint:eslint && npm run lint:prettier && npm run lint:tsc",
+    "lint:eslint": "eslint src",
+    "lint:prettier": "prettier --check src",
+    "lint:tsc": "tsc --project tsconfig.self.json",
     "prepublish": "npm run lint"
   },
   "repository": {
@@ -52,6 +55,8 @@
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/npm": "^12.0.2",
     "@semantic-release/release-notes-generator": "^14.1.0",
+    "@types/confusing-browser-globals": "^1.0.3",
+    "@types/eslint-plugin-jsx-a11y": "^6.10.0",
     "conventional-changelog-conventionalcommits": "^9.1.0",
     "eslint": "^9.36.0",
     "prettier": "^3.6.2",

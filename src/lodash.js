@@ -9,12 +9,10 @@ import { ERROR, OFF } from './config.js';
 export default [
   {
     plugins: {
-      lodash: /** @type {any} -- This is fine */ (lodashPlugin)
+      lodash: /** @type {any} */ (lodashPlugin)
     },
     rules: {
-      .../** @type {any} -- This is fine */ (
-        lodashPlugin.configs.recommended.rules
-      ),
+      .../** @type {any} */ (lodashPlugin.configs.recommended.rules),
       'lodash/prefer-lodash-method': OFF,
       'lodash/import-scope': [ERROR, 'member']
     }

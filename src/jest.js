@@ -14,7 +14,7 @@ export default [
     files: unitTestFiles,
     ...jestPlugin.configs['flat/recommended'],
     rules: {
-      ...jestPlugin.configs['flat/recommended'],
+      .../** @type {any} */ (jestPlugin.configs['flat/recommended']),
       'jest/consistent-test-it': [
         ERROR,
         {

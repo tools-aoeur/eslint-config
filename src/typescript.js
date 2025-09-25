@@ -1,6 +1,5 @@
 // @ts-check
 
-// @ts-expect-error -- False positive
 import importPlugin from 'eslint-plugin-import';
 // eslint-disable-next-line import/no-unresolved -- False positive
 import typescriptEslint from 'typescript-eslint';
@@ -15,7 +14,7 @@ export default [
 
   ...typescriptEslint.configs.recommended,
   ...typescriptEslint.configs.stylisticTypeChecked,
-  importPlugin.configs.typescript,
+  /** @type {any} */ (importPlugin.configs.typescript),
   {
     languageOptions: {
       parserOptions: {

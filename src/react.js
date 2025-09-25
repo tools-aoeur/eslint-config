@@ -11,7 +11,7 @@ import { ERROR, OFF } from './config.js';
  */
 export default [
   jsxA11yPlugin.flatConfigs.recommended,
-  /** @type {any} -- This is fine */ (reactPlugin.configs.flat.recommended),
+  /** @type {any} */ (reactPlugin.configs.flat.recommended),
   {
     plugins: {
       'react-hooks': reactHooksPlugin,
