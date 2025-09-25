@@ -21,7 +21,9 @@ export default [
           withinDescribe: 'it'
         }
       ],
-      'vitest/prefer-lowercase-title': [ERROR, { ignore: ['describe'] }]
+      'vitest/prefer-lowercase-title': [ERROR, { ignore: ['describe'] }],
+      'vitest/prefer-expect-type-of': ERROR,
+      'vitest/hoisted-apis-on-top': ERROR
     }
   }
 ];

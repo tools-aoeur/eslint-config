@@ -91,6 +91,7 @@ export default [
       'object-shorthand': ERROR,
       'prefer-arrow-callback': ERROR,
       'prefer-const': ERROR,
+      'preserve-caught-error': ERROR,
       'spaced-comment': [
         ERROR,
         'always',
