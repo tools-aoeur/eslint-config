@@ -9,7 +9,7 @@ import { ERROR, unitTestFiles } from './config.js';
 export default [
   {
     plugins: {
-      vitest: vitestPlugin
+      vitest: /** @type {any} */ (vitestPlugin)
     },
     files: unitTestFiles,
     rules: {
@@ -21,7 +21,9 @@ export default [
           withinDescribe: 'it'
         }
       ],
-      'vitest/prefer-lowercase-title': [ERROR, { ignore: ['describe'] }]
+      'vitest/prefer-lowercase-title': [ERROR, { ignore: ['describe'] }],
+      'vitest/prefer-expect-type-of': ERROR,
+      'vitest/hoisted-apis-on-top': ERROR
     }
   }
 ];

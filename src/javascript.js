@@ -3,7 +3,6 @@
 import js from '@eslint/js';
 import commentsPlugin from '@eslint-community/eslint-plugin-eslint-comments';
 import confusingBrowserGlobals from 'confusing-browser-globals';
-// @ts-expect-error -- False positive
 import importPlugin from 'eslint-plugin-import';
 import unicornPlugin from 'eslint-plugin-unicorn';
 import unusedImportsPlugin from 'eslint-plugin-unused-imports';
@@ -24,7 +23,7 @@ export default [
       unicorn: unicornPlugin,
       import: importPlugin,
       'unused-imports': unusedImportsPlugin,
-      'eslint-comments': /** @type {any} -- This is fine */ (commentsPlugin)
+      'eslint-comments': /** @type {any} */ (commentsPlugin)
     },
     settings: {
       'import/resolver': 'node'
@@ -91,6 +90,7 @@ export default [
       'object-shorthand': ERROR,
       'prefer-arrow-callback': ERROR,
       'prefer-const': ERROR,
+      'preserve-caught-error': ERROR,
       'spaced-comment': [
         ERROR,
         'always',
