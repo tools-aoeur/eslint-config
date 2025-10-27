@@ -12,9 +12,9 @@ import { ERROR, OFF } from './config.js';
 export default [
   jsxA11yPlugin.flatConfigs.recommended,
   /** @type {any} */ (reactPlugin.configs.flat.recommended),
+  reactHooksPlugin.configs.flat.recommended,
   {
     plugins: {
-      'react-hooks': reactHooksPlugin,
       'sort-destructure-keys': sortDestructureKeys
     },
     settings: {
@@ -38,7 +38,9 @@ export default [
           allowRequiredDefaults: false
         }
       ],
-      'react-hooks/rules-of-hooks': ERROR,
+      // Two changes from recommended default:
+      // - Don't warn, but error
+      // - Enable autofix
       'react-hooks/exhaustive-deps': [
         ERROR,
         // Since we throw on missing deps, it's not a question of whether or not
