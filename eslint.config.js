@@ -11,6 +11,7 @@ export default await getPresets(
   'cssModules',
   'jest',
   'cypress',
+  'playwright',
   'vitest',
   'lodash'
 );

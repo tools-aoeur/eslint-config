@@ -1,7 +1,7 @@
 // @ts-check
 
 import jestPlugin from 'eslint-plugin-jest';
-import { ERROR, unitTestFiles } from './config.js';
+import { ERROR, e2eTestFiles, unitTestFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -11,10 +11,11 @@ export default [
     plugins: {
       jest: jestPlugin
     },
-    files: unitTestFiles,
     ...jestPlugin.configs['flat/recommended'],
+    files: unitTestFiles,
+    ignores: e2eTestFiles,
     rules: {
-      .../** @type {any} */ (jestPlugin.configs['flat/recommended']),
+      ...jestPlugin.configs['flat/recommended'].rules,
       'jest/consistent-test-it': [
         ERROR,
         {

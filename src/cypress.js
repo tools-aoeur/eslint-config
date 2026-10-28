@@ -1,5 +1,6 @@
 // @ts-check
 
+import cypressPlugin from 'eslint-plugin-cypress';
 import { ERROR, cypressTestFiles } from './config.js';
 
 /**
@@ -7,11 +8,15 @@ import { ERROR, cypressTestFiles } from './config.js';
  */
 export default [
   {
+    ...cypressPlugin.configs.recommended,
     files: cypressTestFiles,
     rules: {
+      ...cypressPlugin.configs.recommended.rules,
+      'cypress/no-debug': ERROR,
+      'cypress/no-pause': ERROR,
       'no-restricted-properties': [
         ERROR,
-        ...['it', 'describe', 'test'].map(name => ({
+        ...['it', 'describe', 'test', 'context', 'specify'].map(name => ({
           object: name,
           property: 'only',
           message:
