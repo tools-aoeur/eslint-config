@@ -1,5 +1,20 @@
 # Changelog
 
+## [5.0.0](https://github.com/tools-aoeur/eslint-config/compare/v4.1.0...v5.0.0) (2026-10-29)
+
+### ⚠ BREAKING CHANGES
+
+* Upgrade to ESLint 10 and add Playwright preset (#39)
+
+### Features
+
+* Upgrade to ESLint 10 and add Playwright preset ([#39](https://github.com/tools-aoeur/eslint-config/issues/39)) ([5add2ed](https://github.com/tools-aoeur/eslint-config/commit/5add2edef504ffc91f88036123e0cb5a7d2f4be8))
+
+### Bug Fixes
+
+* Grant `id-token: write` to the release job ([#40](https://github.com/tools-aoeur/eslint-config/issues/40)) ([c15e575](https://github.com/tools-aoeur/eslint-config/commit/c15e575b47debde72fc811a0076d9768a8233c3a))
+* Rollback conventional-changelog-conventionalcommits ([#41](https://github.com/tools-aoeur/eslint-config/issues/41)) ([be6e094](https://github.com/tools-aoeur/eslint-config/commit/be6e0949c76936a582a7996855686cf197d022d0))
+
 ## [4.1.0](https://github.com/tools-aoeur/eslint-config/compare/v4.0.0...v4.1.0) (2026-04-09)
 
 ### Features
