@@ -3,15 +3,17 @@
 import js from '@eslint/js';
 import commentsPlugin from '@eslint-community/eslint-plugin-eslint-comments';
 import confusingBrowserGlobals from 'confusing-browser-globals';
-import importPlugin from 'eslint-plugin-import';
+import { createNodeResolver, importX } from 'eslint-plugin-import-x';
 import unicornPlugin from 'eslint-plugin-unicorn';
 import unusedImportsPlugin from 'eslint-plugin-unused-imports';
-import { ERROR } from './config.js';
+import { ERROR, javascriptFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
  */
 export default [
+  // ESLint only lints `*.{js,mjs,cjs}` files by default
+  { files: javascriptFiles },
   js.configs.recommended,
   {
     languageOptions: {
@@ -21,12 +23,14 @@ export default [
     },
     plugins: {
       unicorn: unicornPlugin,
-      import: importPlugin,
+      // Registered under the `import` namespace to stay compatible with the
+      // rule names of `eslint-plugin-import`
+      import: /** @type {any} */ (importX),
       'unused-imports': unusedImportsPlugin,
       'eslint-comments': /** @type {any} */ (commentsPlugin)
     },
     settings: {
-      'import/resolver': 'node'
+      'import-x/resolver-next': [createNodeResolver()]
     },
     rules: {
       'array-callback-return': ERROR,

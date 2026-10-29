@@ -1,7 +1,7 @@
 // @ts-check
 
 import vitestPlugin from '@vitest/eslint-plugin';
-import { ERROR, unitTestFiles } from './config.js';
+import { ERROR, e2eTestFiles, unitTestFiles } from './config.js';
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
@@ -12,6 +12,7 @@ export default [
       vitest: /** @type {any} */ (vitestPlugin)
     },
     files: unitTestFiles,
+    ignores: e2eTestFiles,
     rules: {
       ...vitestPlugin.configs.recommended.rules,
       'vitest/consistent-test-it': [

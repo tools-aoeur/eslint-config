@@ -1,26 +1,51 @@
 // @ts-check
 
-import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
-import reactPlugin from 'eslint-plugin-react';
+import eslintReactPlugin from '@eslint-react/eslint-plugin';
+import stylisticPlugin from '@stylistic/eslint-plugin';
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y-x';
+import perfectionistPlugin from 'eslint-plugin-perfectionist';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import sortDestructureKeys from 'eslint-plugin-sort-destructure-keys';
-import { ERROR, OFF } from './config.js';
+import { ERROR, OFF, playwrightTestFiles } from './config.js';
+
+/**
+ * Registers `eslint-plugin-jsx-a11y-x` under the `jsx-a11y` namespace to stay
+ * compatible with the rule names of `eslint-plugin-jsx-a11y`.
+ */
+const jsxA11yRecommended = {
+  plugins: {
+    'jsx-a11y': jsxA11yPlugin
+  },
+  rules: Object.fromEntries(
+    Object.entries(jsxA11yPlugin.configs.recommended.rules ?? {}).map(
+      ([name, value]) => [name.replace(/^jsx-a11y-x\//, 'jsx-a11y/'), value]
+    )
+  )
+};
+
+/**
+ * The official `react-hooks` plugin is used for the rules of hooks and the
+ * React Compiler rules, therefore the ported rules are disabled.
+ */
+const eslintReactHooksDuplicates = Object.fromEntries(
+  Object.keys(reactHooksPlugin.rules)
+    .map(name => `@eslint-react/${name}`)
+    .filter(name => name in (eslintReactPlugin.configs.all.rules ?? {}))
+    .map(name => [name, OFF])
+);
 
 /**
  * @type {Array<import('eslint').Linter.Config>}
  */
 export default [
-  jsxA11yPlugin.flatConfigs.recommended,
-  /** @type {any} */ (reactPlugin.configs.flat.recommended),
+  jsxA11yRecommended,
+  eslintReactPlugin.configs.recommended,
   reactHooksPlugin.configs.flat.recommended,
   {
     plugins: {
+      '@stylistic': stylisticPlugin,
+      perfectionist: perfectionistPlugin,
       'sort-destructure-keys': sortDestructureKeys
-    },
-    settings: {
-      react: {
-        version: 'detect'
-      }
     },
     languageOptions: {
       parserOptions: {
@@ -30,14 +55,13 @@ export default [
       }
     },
     rules: {
+      ...eslintReactHooksDuplicates,
       'jsx-a11y/label-has-associated-control': ERROR,
-      'react/button-has-type': ERROR,
-      'react/default-props-match-prop-types': [
-        ERROR,
-        {
-          allowRequiredDefaults: false
-        }
-      ],
+      '@eslint-react/dom-no-missing-button-type': ERROR,
+      '@eslint-react/dom-no-unsafe-target-blank': ERROR,
+      // False positives with render props
+      '@eslint-react/no-nested-component-definitions': OFF,
+      '@eslint-react/no-unused-state': ERROR,
       // Two changes from recommended default:
       // - Don't warn, but error
       // - Enable autofix
@@ -48,62 +72,31 @@ export default [
         // automatically. Therefore go for the automatic fix.
         { enableDangerousAutofixThisMayCauseInfiniteLoops: true }
       ],
-      'react/react-in-jsx-scope': OFF,
-      'react/jsx-boolean-value': [ERROR, 'never', { always: [] }],
-      'react/jsx-curly-brace-presence': [
+      '@stylistic/jsx-curly-brace-presence': [
         ERROR,
         { props: 'never', children: 'ignore' }
       ],
-      'react/function-component-definition': [
+      '@stylistic/jsx-self-closing-comp': ERROR,
+      'perfectionist/sort-jsx-props': [
         ERROR,
         {
-          namedComponents: 'function-declaration',
-          unnamedComponents: 'arrow-function'
-        }
-      ],
-      'react/jsx-no-bind': [
-        ERROR,
-        { allowArrowFunctions: true, allowFunctions: true }
-      ],
-      'react/jsx-no-target-blank': ERROR,
-      'react/jsx-sort-props': [
-        ERROR,
-        {
-          locale: 'en',
+          type: 'alphabetical',
+          locales: 'en',
           ignoreCase: true,
-          reservedFirst: ['key', 'ref']
+          customGroups: [
+            { groupName: 'reserved', elementNamePattern: '^(key|ref)$' }
+          ],
+          groups: ['reserved', 'unknown']
         }
       ],
-      'react/no-access-state-in-setstate': ERROR,
-      'react/no-direct-mutation-state': ERROR,
-      'react/no-this-in-sfc': ERROR,
-      'react/no-typos': ERROR,
-      // False positives with render props
-      'react/no-unstable-nested-components': OFF,
-      'react/no-unused-prop-types': ERROR,
-      'react/no-unused-state': ERROR,
-      'react/self-closing-comp': ERROR,
-      'react/sort-comp': [
-        ERROR,
-        {
-          order: [
-            'type-annotations',
-            'static-variables',
-            'static-methods',
-            'instance-variables',
-            'lifecycle',
-            '/^on.+$/',
-            'getters',
-            'setters',
-            '/^(get|set)(?!(InitialState$|DefaultProps$|ChildContext$)).+$/',
-            'everything-else',
-            '/^render.+$/',
-            'render'
-          ]
-        }
-      ],
-      'react/sort-prop-types': ERROR,
       'sort-destructure-keys/sort-destructure-keys': ERROR
+    }
+  },
+  {
+    // Playwright fixtures call `use(value)`, which isn't a React Hook
+    files: playwrightTestFiles,
+    rules: {
+      'react-hooks/rules-of-hooks': OFF
     }
   }
 ];

@@ -1,7 +1,6 @@
 // @ts-check
 
-import importPlugin from 'eslint-plugin-import';
-// eslint-disable-next-line import/no-unresolved -- False positive
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import typescriptEslint from 'typescript-eslint';
 import { ERROR, OFF, javascriptFiles } from './config.js';
 import javascript from './javascript.js';
@@ -14,7 +13,6 @@ export default [
 
   ...typescriptEslint.configs.recommended,
   ...typescriptEslint.configs.stylisticTypeChecked,
-  /** @type {any} */ (importPlugin.configs.typescript),
   {
     languageOptions: {
       parserOptions: {
@@ -22,7 +20,7 @@ export default [
       }
     },
     settings: {
-      'import/resolver': 'typescript'
+      'import-x/resolver-next': [createTypeScriptImportResolver()]
     },
     rules: {
       // The TypeScript compiler takes care of this
@@ -49,6 +47,17 @@ export default [
       '@typescript-eslint/no-unused-expressions': ERROR,
       '@typescript-eslint/array-type': [ERROR, { default: 'generic' }],
       '@typescript-eslint/await-thenable': ERROR,
+      '@typescript-eslint/consistent-type-imports': [
+        ERROR,
+        // Consistent with `import/no-duplicates`
+        { fixStyle: 'inline-type-imports' }
+      ],
+      '@typescript-eslint/no-deprecated': ERROR,
+      '@typescript-eslint/no-duplicate-type-constituents': ERROR,
+      '@typescript-eslint/no-redundant-type-constituents': ERROR,
+      '@typescript-eslint/no-unnecessary-type-arguments': ERROR,
+      '@typescript-eslint/no-unnecessary-type-assertion': ERROR,
+      '@typescript-eslint/no-unnecessary-type-conversion': ERROR,
       '@typescript-eslint/method-signature-style': [ERROR, 'property'],
       '@typescript-eslint/no-for-in-array': ERROR,
       '@typescript-eslint/no-floating-promises': ERROR,
@@ -62,7 +71,7 @@ export default [
       '@typescript-eslint/no-empty-function': OFF,
       '@typescript-eslint/no-shadow': ERROR,
       '@typescript-eslint/prefer-nullish-coalescing': [
-        'error',
+        ERROR,
         {
           ignorePrimitives: { boolean: true, string: true }
         }
