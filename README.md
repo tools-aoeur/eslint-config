@@ -122,7 +122,14 @@ To auto-fix errors from ESLint as well as Prettier on save, you can use the foll
 
 ## Migrating to v5 (ESLint 10)
 
-ESLint 10 is required. Plugins that don't support ESLint 10 were replaced:
+ESLint 10 is required. With npm, remove v4 first, since its peer dependencies prevent installing ESLint 10:
+
+```sh
+npm uninstall @tools-aoeur/eslint-config
+npm install -D @tools-aoeur/eslint-config@^5 eslint@^10.4.0
+```
+
+Plugins that don't support ESLint 10 were replaced:
 
 | Before                   | After                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -145,6 +152,8 @@ Rules from `eslint-plugin-react` used in your own config or in `eslint-disable` 
 | `react/no-unused-state`                          | `@eslint-react/no-unused-state`                                                     |
 | `react/self-closing-comp`                        | `@stylistic/jsx-self-closing-comp`                                                  |
 | `react/forbid-elements`, `react/jsx-no-literals` | `no-restricted-syntax`, e.g. with the selector `JSXOpeningElement[name.name='div']` |
+
+`react/jsx-no-literals` can be replaced with `no-restricted-syntax`, e.g. with the selectors `JSXElement > JSXText[value=/\S/]` and `JSXElement > JSXExpressionContainer > Literal[value=/\S/]`. Since this overrides `no-restricted-syntax` from the preset, add the `ForInStatement` selector again. `eslint-disable` comments for removed rules have to be updated as well, otherwise ESLint reports that the rule definition wasn't found.
 
 Rules that only apply to `propTypes`, `defaultProps` or class component ordering (e.g. `react/sort-comp`, `react/sort-prop-types`, `react/no-typos`) were dropped without replacement.
 

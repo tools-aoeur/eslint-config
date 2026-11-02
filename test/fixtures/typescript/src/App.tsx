@@ -21,6 +21,9 @@ export default function App({ onClick, label }: Props) {
       <a href="https://x.y" target="_blank">{value}</a>
       <img src="x.png" />
       <div></div>
+      {list.map((item, index) => (
+        <p key={index}>{item.id}</p>
+      ))}
     </div>
   );
 }
