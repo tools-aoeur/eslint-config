@@ -27,7 +27,14 @@ async function lintFixture(fixture, config) {
   return Object.fromEntries(
     results.map(result => [
       path.relative(cwd, result.filePath),
-      [...new Set(result.messages.map(message => String(message.ruleId)))].sort()
+      [
+        ...new Set(
+          result.messages.map(
+            message =>
+              String(message.ruleId) + (message.severity === 1 ? ' (warn)' : '')
+          )
+        )
+      ].sort()
     ])
   );
 }
@@ -47,7 +54,9 @@ describe('typescript project', async () => {
 
   it('reports nothing for valid code', () => {
     assert.deepEqual(results['src/Clean.tsx'], []);
+    assert.deepEqual(results['src/Group.tsx'], []);
     assert.deepEqual(results['src/util.ts'], []);
+    assert.deepEqual(results['src/styles.d.ts'], []);
     assert.deepEqual(results['tests/e2e/specs/clean.spec.ts'], []);
   });
 
@@ -55,6 +64,7 @@ describe('typescript project', async () => {
     assert.deepEqual(results['src/App.tsx'], [
       '@eslint-react/dom-no-missing-button-type',
       '@eslint-react/dom-no-unsafe-target-blank',
+      '@eslint-react/no-array-index-key',
       '@eslint-react/no-missing-key',
       '@stylistic/jsx-curly-brace-presence',
       '@stylistic/jsx-self-closing-comp',
@@ -67,6 +77,13 @@ describe('typescript project', async () => {
       'perfectionist/sort-jsx-props',
       'react-hooks/exhaustive-deps',
       'sort-destructure-keys/sort-destructure-keys'
+    ]);
+  });
+
+  it('applies the css modules preset', () => {
+    assert.deepEqual(results['src/Card.tsx'], [
+      'css-modules/no-undef-class',
+      'css-modules/no-unused-class'
     ]);
   });
 
@@ -100,7 +117,7 @@ describe('typescript project', async () => {
   it('applies the playwright preset instead of vitest to e2e files', () => {
     assert.deepEqual(results['tests/e2e/specs/basic.spec.ts'], [
       'playwright/consistent-spacing-between-blocks',
-      'playwright/expect-expect',
+      'playwright/expect-expect (warn)',
       'playwright/no-focused-test',
       'playwright/no-page-pause',
       'playwright/no-wait-for-timeout',
@@ -148,7 +165,7 @@ describe('javascript project', async () => {
   it('applies the jest preset', () => {
     assert.deepEqual(results['src/b.test.js'], [
       'jest/consistent-test-it',
-      'jest/expect-expect',
+      'jest/expect-expect (warn)',
       'jest/no-focused-tests',
       'jest/prefer-lowercase-title'
     ]);

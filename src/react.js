@@ -35,6 +35,18 @@ const eslintReactHooksDuplicates = Object.fromEntries(
 );
 
 /**
+ * Don't warn, but error.
+ */
+const eslintReactWarningsAsErrors = Object.fromEntries(
+  Object.entries(eslintReactPlugin.configs.recommended.rules ?? {})
+    .filter(([, value]) => (Array.isArray(value) ? value[0] : value) === 'warn')
+    .map(([name, value]) => [
+      name,
+      Array.isArray(value) ? [ERROR, ...value.slice(1)] : ERROR
+    ])
+);
+
+/**
  * @type {Array<import('eslint').Linter.Config>}
  */
 export default [
@@ -55,7 +67,16 @@ export default [
       }
     },
     rules: {
+      ...eslintReactWarningsAsErrors,
       ...eslintReactHooksDuplicates,
+      // These APIs are discouraged, but still valid
+      '@eslint-react/no-children-count': OFF,
+      '@eslint-react/no-children-for-each': OFF,
+      '@eslint-react/no-children-map': OFF,
+      '@eslint-react/no-children-only': OFF,
+      '@eslint-react/no-children-to-array': OFF,
+      '@eslint-react/no-clone-element': OFF,
+      '@eslint-react/no-use-context': OFF,
       'jsx-a11y/label-has-associated-control': ERROR,
       '@eslint-react/dom-no-missing-button-type': ERROR,
       '@eslint-react/dom-no-unsafe-target-blank': ERROR,

@@ -1,5 +1,6 @@
 // @ts-check
 
+import { fixupPluginRules } from '@eslint/compat';
 // @ts-expect-error -- False positive
 import cssModules from 'eslint-plugin-css-modules';
 import { ERROR, OFF, allTestFiles } from './config.js';
@@ -10,7 +11,9 @@ import { ERROR, OFF, allTestFiles } from './config.js';
 export default [
   {
     plugins: {
-      'css-modules': cssModules
+      // The plugin isn't maintained anymore and uses APIs that were removed in
+      // ESLint 10, e.g. `context.getFilename()`
+      'css-modules': fixupPluginRules(cssModules)
     },
     rules: {
       'css-modules/no-unused-class': ERROR,
