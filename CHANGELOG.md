@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.0.1](https://github.com/tools-aoeur/eslint-config/compare/v6.0.0...v6.0.1) (2026-11-03)
+
+### Bug Fixes
+
+* Support eslint-plugin-lodash on ESLint 10 ([#44](https://github.com/tools-aoeur/eslint-config/issues/44)) ([06d89ee](https://github.com/tools-aoeur/eslint-config/commit/06d89ee4bc2fdfe99a4ec3a2de52ad64812aae87))
+
 ## [6.0.0](https://github.com/tools-aoeur/eslint-config/compare/v5.0.0...v6.0.0) (2026-11-03)
 
 ### ⚠ BREAKING CHANGES
