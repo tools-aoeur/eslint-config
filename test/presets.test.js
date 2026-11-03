@@ -49,7 +49,12 @@ describe('typescript project', async () => {
       'vitest',
       'cypress',
       'playwright'
-    ))
+    )),
+    // Enabled by consuming projects
+    {
+      files: ['src/lodash.ts'],
+      rules: { 'lodash/prefer-lodash-method': 'error' }
+    }
   ]);
 
   it('reports nothing for valid code', () => {
@@ -77,6 +82,13 @@ describe('typescript project', async () => {
       'perfectionist/sort-jsx-props',
       'react-hooks/exhaustive-deps',
       'sort-destructure-keys/sort-destructure-keys'
+    ]);
+  });
+
+  it('applies the lodash preset', () => {
+    assert.deepEqual(results['src/lodash.ts'], [
+      'lodash/import-scope',
+      'lodash/prefer-lodash-method'
     ]);
   });
 

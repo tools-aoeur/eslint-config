@@ -1,5 +1,6 @@
 // @ts-check
 
+import { fixupPluginRules } from '@eslint/compat';
 import lodashPlugin from 'eslint-plugin-lodash';
 import { ERROR, OFF } from './config.js';
 
@@ -9,7 +10,8 @@ import { ERROR, OFF } from './config.js';
 export default [
   {
     plugins: {
-      lodash: /** @type {any} */ (lodashPlugin)
+      // Some rules use `context.getSourceCode()`, which was removed in ESLint 10
+      lodash: fixupPluginRules(/** @type {any} */ (lodashPlugin))
     },
     rules: {
       .../** @type {any} */ (lodashPlugin.configs.recommended.rules),
