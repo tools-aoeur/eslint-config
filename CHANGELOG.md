@@ -1,5 +1,15 @@
 # Changelog
 
+## [6.0.0](https://github.com/tools-aoeur/eslint-config/compare/v5.0.0...v6.0.0) (2026-11-03)
+
+### ⚠ BREAKING CHANGES
+
+* Support css-modules on ESLint 10 and turn @eslint-react warnings into errors (#43)
+
+### Bug Fixes
+
+* Support css-modules on ESLint 10 and turn [@eslint-react](https://github.com/eslint-react) warnings into errors ([#43](https://github.com/tools-aoeur/eslint-config/issues/43)) ([91be4d9](https://github.com/tools-aoeur/eslint-config/commit/91be4d9e15ddf74f7d507a753e70e9d6f9f655c6))
+
 ## [5.0.0](https://github.com/tools-aoeur/eslint-config/compare/v4.1.0...v5.0.0) (2026-10-29)
 
 ### ⚠ BREAKING CHANGES
